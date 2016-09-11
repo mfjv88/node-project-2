@@ -5,7 +5,7 @@ var processCsv = require('./processcsv');
 var findContact = require('./functions').findContact;
 var writeCsv = require('./functions').writeCsv;
 
-function deletingInfo(data){
+function deletingInfo(filename){
   var info = prompt('Would you like to delete a contact? ');
   var search = null;
   if (info.toUpperCase() === "YES") {
@@ -13,10 +13,10 @@ function deletingInfo(data){
   } else {
     return 2;
   }
-  var id = findContact(data, search);
+  var id = findContact(filename, search);
   if (id !== false){
-    data.splice(id, 1);
-    return data;
+    filename.splice(id, 1);
+    return filename;
     // console.log(data);
   } else {
     return 3;
